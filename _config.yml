@@ -1,0 +1,12 @@
+title: Harry Taverner | Portfolio
+description: Portfolio of tech writing, graphic design, and fiction
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
