@@ -59,22 +59,20 @@ html, body {
   margin-bottom: 2rem;
 }
 
-.hero h1 {
+#hero-text {
   width: 100%;
   font-size: 12vw;
   font-weight: 900;
-  margin: 0;
-  padding: 0;
   line-height: 0.85;
-  opacity: 1;
-  transition: opacity 0.6s ease;
   white-space: normal;
   word-break: break-word;
   color: #ffffff;
   text-align: left;
+  opacity: 1;
+  transition: opacity 0.6s ease;
 }
 
-/* Content Sections with Transitions */
+/* Content Sections */
 #content-area {
   position: relative;
   min-height: 60vh;
@@ -85,6 +83,8 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s ease;
@@ -93,5 +93,7 @@ html, body {
 .portfolio-section.active {
   opacity: 1;
   pointer-events: auto;
+  position: relative;
+  max-height: none;
   z-index: 1;
 }

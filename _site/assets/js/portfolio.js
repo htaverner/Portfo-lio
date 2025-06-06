@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sections = {
+    home: document.getElementById("home"),
     tech: document.getElementById("tech"),
     design: document.getElementById("design"),
     fiction: document.getElementById("fiction")
@@ -7,12 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sidebarItems = document.querySelectorAll("#sidebar ul li");
   const heroText = document.getElementById("hero-text");
+  const mainContent = document.getElementById("main-content");
 
-  let currentSection = "tech";
-  const fadeDuration = 600; // Must match CSS transition
+  let currentSection = "home";
+  const fadeDuration = 600;
 
   function sidebarLabel(id) {
     switch (id) {
+      case "home": return "PORTFO<br/>LIO";
       case "tech": return "TECH<br/>WRITING";
       case "design": return "DES<br/>IGN";
       case "fiction": return "FICT<br/>ION";
@@ -20,29 +23,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function showSection(target) {
-    if (target === currentSection) return;
+function showSection(target) {
+  if (target === currentSection) return;
 
-    // Fade out current section
-    sections[currentSection].classList.remove("active");
-    heroText.style.opacity = 0;
+  const current = sections[currentSection];
+  const next = sections[target];
 
-    setTimeout(() => {
-      // Hide old section, show new section
-      sections[target].classList.add("active");
-      heroText.innerHTML = sidebarLabel(target);
+  // Fade out current section and hero text
+  current.style.opacity = 0;
+  heroText.style.opacity = 0;
+
+  setTimeout(() => {
+    // Hide current section
+    current.classList.remove("active");
+    current.style.display = "none";
+
+    // Show and fade in new section
+    next.style.display = "block";
+    requestAnimationFrame(() => {
+      next.classList.add("active");
+      next.style.opacity = 1;
+    });
+
+    // Update hero text after fade out, then fade in
+    heroText.innerHTML = sidebarLabel(target);
+    requestAnimationFrame(() => {
       heroText.style.opacity = 1;
+    });
 
-      // Update sidebar state
-      sidebarItems.forEach(item => {
-        item.classList.toggle("active", item.dataset.section === target);
-      });
+    // Update sidebar highlight
+    sidebarItems.forEach(item => {
+      item.classList.toggle("active", item.dataset.section === target);
+    });
 
-      currentSection = target;
-    }, fadeDuration);
-  }
+    // Scroll to top of main content smoothly
+    mainContent.scrollTo({ top: 0, behavior: "smooth" });
 
-  // Initialize visible section
+    currentSection = target;
+  }, fadeDuration);
+}
+
+  // Initial section setup
   Object.entries(sections).forEach(([key, section]) => {
     if (key === currentSection) {
       section.classList.add("active");
@@ -53,13 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Initial hero text opacity
+  heroText.innerHTML = sidebarLabel(currentSection);
   heroText.style.opacity = 1;
 
-  // Attach sidebar event listeners
+  // Sidebar click handling
   sidebarItems.forEach(item => {
     item.addEventListener("click", () => {
-      showSection(item.dataset.section);
+      const target = item.dataset.section;
+      showSection(target);
     });
   });
+
+  // Optional: On load, jump to section in URL hash
+  const hash = window.location.hash.replace("#", "");
+  if (hash && sections[hash]) {
+    showSection(hash);
+  }
 });

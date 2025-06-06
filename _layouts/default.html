@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
 </head>
 <body>
   <div id="wrapper">
     <aside id="sidebar">
       <nav>
         <ul>
-          <li data-section="tech" class="active">Tech Writing</li>
-          <li data-section="design">Graphic Design</li>
-          <li data-section="fiction">Fiction</li>
+          <li data-section="home" class="active">PORTFO<br/>LIO</li>
+          <li data-section="tech">TECH<br/>WRITING</li>
+          <li data-section="design">DES<br/>IGN</li>
+          <li data-section="fiction">FICT<br/>ION</li>
         </ul>
       </nav>
     </aside>
+
     <main id="main-content">
-      <header class="hero">
-        <h1 id="hero-text">TECH<br/>WRITING</h1>
-      </header>
-      <section id="content-area">
+      <div class="hero">
+        <h1 id="hero-text">{{ page.hero_text | markdownify }}</h1>
+      </div>
+
+      <div id="content-area">
         {{ content }}
-      </section>
+      </div>
     </main>
   </div>
 
-  <script src="/assets/js/portfolio.js"></script>
+  <script src="{{ '/assets/js/portfolio.js' | relative_url }}"></script>
 </body>
 </html>
