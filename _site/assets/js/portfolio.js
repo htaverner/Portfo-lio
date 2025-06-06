@@ -23,54 +23,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-function showSection(target) {
-  if (target === currentSection) return;
+  function showSection(target) {
+    if (target === currentSection) return;
 
-  const current = sections[currentSection];
-  const next = sections[target];
+    const current = sections[currentSection];
+    const next = sections[target];
 
-  // Fade out current section and hero text
-  current.style.opacity = 0;
-  heroText.style.opacity = 0;
+    // Fade out current section and hero text
+    current.style.opacity = 0;
+    heroText.style.opacity = 0;
 
-  setTimeout(() => {
-    // Hide current section
-    current.classList.remove("active");
-    current.style.display = "none";
+    setTimeout(() => {
+      // Hide current section
+      current.classList.remove("active");
+      current.style.display = "none";
 
-    // Show and fade in new section
-    next.style.display = "block";
-    requestAnimationFrame(() => {
-      next.classList.add("active");
-      next.style.opacity = 1;
-    });
+      // Show and fade in new section
+      next.style.display = "block";
+      // Scroll to top of main content smoothly BEFORE fade-in
+      mainContent.scrollTo({ top: 0, behavior: "smooth" });
 
-    // Update hero text after fade out, then fade in
-    heroText.innerHTML = sidebarLabel(target);
-    requestAnimationFrame(() => {
-      heroText.style.opacity = 1;
-    });
+      requestAnimationFrame(() => {
+        next.classList.add("active");
+        next.style.opacity = 1;
+      });
 
-    // Update sidebar highlight
-    sidebarItems.forEach(item => {
-      item.classList.toggle("active", item.dataset.section === target);
-    });
+      // Update hero text after fade out, then fade in
+      heroText.innerHTML = sidebarLabel(target);
+      requestAnimationFrame(() => {
+        heroText.style.opacity = 1;
+      });
 
-    // Scroll to top of main content smoothly
-    mainContent.scrollTo({ top: 0, behavior: "smooth" });
+      // Update sidebar highlight
+      sidebarItems.forEach(item => {
+        item.classList.toggle("active", item.dataset.section === target);
+      });
 
-    currentSection = target;
-  }, fadeDuration);
-}
+      currentSection = target;
+    }, fadeDuration);
+  }
 
   // Initial section setup
   Object.entries(sections).forEach(([key, section]) => {
     if (key === currentSection) {
       section.classList.add("active");
       section.style.opacity = 1;
+      section.style.display = "block";
     } else {
       section.classList.remove("active");
       section.style.opacity = 0;
+      section.style.display = "none";
     }
   });
 
