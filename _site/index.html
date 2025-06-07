@@ -7,7 +7,17 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
+  <!-- Hamburger Toggle Button -->
+  <button id="sidebar-toggle" aria-label="Toggle menu" class="Hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Wrapper for layout -->
   <div id="wrapper">
+
+    <!-- Sidebar -->
     <aside id="sidebar">
       <div class="sidebar-top">
         <img id="logo" src="/assets/images/ht-logo512.png" alt="Logo" />
@@ -23,24 +33,24 @@
         </nav>
       </div>
       <div class="sidebar-bottom">
-        <a href="mailto:you@example.com" target="_blank" aria-label="Email">
+        <a href="mailto:harrytaverner@gmail.com" target="_blank" aria-label="Email">
           <img src="/assets/icons/email.svg" alt="Email" />
         </a>
-        <a href="https://linkedin.com/in/yourhandle" target="_blank" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/htaverner" target="_blank" aria-label="LinkedIn">
           <img src="/assets/icons/linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="https://github.com/yourhandle" target="_blank" aria-label="GitHub">
-          <img src="/assets/icons/github.svg" alt="GitHub" />
+        <a href="https://github.com/htaverner" target="_blank" aria-label="GitHub">
+          <img src="/assets/icons/github-icon.svg" alt="GitHub" />
         </a>
       </div>
     </aside>
 
+    <!-- Main Content -->
     <main id="main-content">
       <div class="hero">
         <h1 id="hero-text"><p>PORTFO<br />LIO</p>
 </h1>
       </div>
-
       <div id="content-area">
         <div id="home" class="portfolio-section active">
   <h2>Welcome to My Portfolio</h2>
@@ -64,6 +74,60 @@
   </ul>
 
   <p>I'm currently building a set of sample docs, walkthroughs, and guides to demonstrate my approach across use cases. These will be added here soon.</p>
+
+  <div class="accordion-container">
+
+    <div class="accordion-card">
+      <div class="accordion-header">
+        <h3>🛠 How to Set Up a Local Dev Environment</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="accordion-content">
+        <p>This guide walks you through setting up a complete development environment using Node.js, VS Code, and Docker.</p>
+        <ul>
+          <li>Install prerequisites (Node, Git, Docker)</li>
+          <li>Clone the starter repo</li>
+          <li>Run the local server and test endpoints</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-card">
+      <div class="accordion-header">
+        <h3>🔄 API v2.3 Update: Breaking Changes & Migration</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="accordion-content">
+        <p>Version 2.3 introduces several breaking changes to the /users endpoint, improves authentication flow, and deprecates legacy tokens.</p>
+        <p><strong>What's new:</strong></p>
+        <ul>
+          <li>JWT required for all requests</li>
+          <li>`/users/profile` renamed to `/users/me`</li>
+          <li>Added rate limits on public routes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-card">
+      <div class="accordion-header">
+       <h3>🔍 Understanding REST vs GraphQL in Product APIs</h3>
+       <button class="toggle-btn">+</button>
+     </div>
+     <div class="accordion-content">
+        <p>This technical explainer compares REST and GraphQL for building scalable, flexible product APIs in modern SaaS architectures.</p>
+       <p>Includes diagrams, tradeoffs, and performance benchmarks from real-world apps.</p>
+      </div>
+    </div>
+
+  </div>
+
+ 
+
+ 
+
+
+
+
 </section>
 
 <section id="design" class="portfolio-section">
@@ -105,8 +169,10 @@
 
       </div>
     </main>
-  </div>
+
+  </div> <!-- End #wrapper -->
 
   <script src="/assets/js/portfolio.js"></script>
+
 </body>
 </html>

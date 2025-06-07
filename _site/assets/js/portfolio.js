@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // === SECTION HANDLING ===
   const sections = {
     home: document.getElementById("home"),
     tech: document.getElementById("tech"),
@@ -40,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Show and fade in new section
       next.style.display = "block";
-      // Scroll to top of main content smoothly BEFORE fade-in
       mainContent.scrollTo({ top: 0, behavior: "smooth" });
 
       requestAnimationFrame(() => {
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         next.style.opacity = 1;
       });
 
-      // Update hero text after fade out, then fade in
       heroText.innerHTML = sidebarLabel(target);
       requestAnimationFrame(() => {
         heroText.style.opacity = 1;
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, fadeDuration);
   }
 
-  // Initial section setup
+  // Initialize sections
   Object.entries(sections).forEach(([key, section]) => {
     if (key === currentSection) {
       section.classList.add("active");
@@ -79,17 +78,59 @@ document.addEventListener("DOMContentLoaded", () => {
   heroText.innerHTML = sidebarLabel(currentSection);
   heroText.style.opacity = 1;
 
-  // Sidebar click handling
   sidebarItems.forEach(item => {
     item.addEventListener("click", () => {
       const target = item.dataset.section;
       showSection(target);
+
+      // Close sidebar on mobile nav click
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove("open");
+        toggleButton.classList.remove("active");
+      }
     });
   });
 
-  // Optional: On load, jump to section in URL hash
+  // Optional: Jump to hash
   const hash = window.location.hash.replace("#", "");
   if (hash && sections[hash]) {
     showSection(hash);
   }
+
+  // === MOBILE SIDEBAR TOGGLE ===
+  const toggleButton = document.getElementById("sidebar-toggle");
+  const sidebar = document.getElementById("sidebar");
+
+  toggleButton.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    toggleButton.classList.toggle("active");
+  });
+
+  // === ACCORDION HANDLING ===
+const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+accordionHeaders.forEach(header => {
+  const content = header.nextElementSibling;
+  const btn = header.querySelector(".toggle-btn");
+
+  header.addEventListener("click", () => {
+    const isExpanded = content.classList.contains("expanded");
+
+    // Close all
+    document.querySelectorAll(".accordion-content").forEach(c => {
+      c.classList.remove("expanded");
+    });
+
+    document.querySelectorAll(".accordion-header .toggle-btn").forEach(b => {
+      b.textContent = "+";
+    });
+
+    // Expand clicked one if it wasn't already open
+    if (!isExpanded) {
+      content.classList.add("expanded");
+      btn.textContent = "–";
+    }
+  });
+});
+
 });

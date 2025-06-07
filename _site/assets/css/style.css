@@ -146,3 +146,132 @@ html, body {
   max-height: none;
   z-index: 1;
 }
+
+/* Sidebar toggle button (hamburger) */
+#sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+}
+
+/* Hamburger bars */
+#sidebar-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Transform into X */
+#sidebar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#sidebar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#sidebar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hover effect */
+#sidebar-toggle:hover span {
+  background-color: #fff;
+}
+
+/* Show on mobile only */
+@media (max-width: 768px) {
+  #sidebar-toggle {
+    display: flex;
+  }
+
+  #sidebar {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    z-index: 999;
+    transition: left 0.3s ease;
+  }
+
+  #sidebar.open {
+    left: 0;
+  }
+}
+
+/* Accordion Styles */
+.accordion-container {
+  margin-top: 2rem;
+}
+
+.accordion-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border 0.3s ease;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  font-weight: 600;
+  color: #eee;
+  background: #2a2a2a;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.accordion-header:hover {
+  background: #333;
+}
+
+/* Prevent child elements from blocking clicks */
+.accordion-header * {
+  pointer-events: none;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  color: #ccc;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion-content.expanded {
+  max-height: 500px; /* adjust based on expected content */
+  padding: 1rem;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+  pointer-events: none; /* ensures parent header handles the click */
+}
+
+.accordion-card.open .toggle-btn {
+  transform: rotate(45deg); /* plus to x */
+}
