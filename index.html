@@ -31,17 +31,63 @@ hero_text: PORTFO<br/>LIO
 
     <div class="accordion-card">
       <div class="accordion-header">
-        <h3>How to Set Up a Local Dev Environment</h3>
+        <h3>Install <code>htop</code> on Linux</h3>
         <button class="toggle-btn">+</button>
       </div>
       <div class="accordion-content">
-        <p>This guide walks you through setting up a complete development environment using Node.js, VS Code, and Docker.</p>
-        <ul>
-          <li>Install prerequisites (Node, Git, Docker)</li>
-          <li>Clone the starter repo</li>
-          <li>Run the local server and test endpoints</li>
+       <div style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"></div>
+        <p><strong>Overview:</strong></p>
+        <p><code>htop</code> is an interactive process viewer for Unix systems. It is a more user-friendly alternative to <code>top</code>, offering colorized output and intuitive navigation.</p>
+
+        <br>
+
+        <p><strong>Supported Systems:</strong> Ubuntu / Debian, Fedora, Arch Linux</p>
+        
+        <br>
+
+        <hr>
+
+        <br>
+
+        <p><strong>Step-by-Step Instructions:</strong></p>
+        <br>
+        <ol style="padding-left: 20px; margin-left: 10px;">
+          <li>Open your terminal.</li>
+          <li>
+            Run the appropriate installation command:
+            <ul style="padding-left: 20px; margin-left: 10px;"><br>
+              <li><strong>Ubuntu / Debian:</strong><br>
+                <code>sudo apt update</code><br>
+                <code>sudo apt install htop</code>
+              </li>
+              <li><strong>Fedora:</strong><br>
+                <code>sudo dnf install htop</code>
+              </li>
+              <li><strong>Arch Linux:</strong><br>
+                <code>sudo pacman -S htop</code>
+              </li>
+            </ul>
+          </li><br>
+          <li>Launch <code>htop</code> to verify it works:
+            <code>htop</code>
+        </li>
+      </ol>
+      <br>
+        <hr>
+      <br>
+      <p><strong>Troubleshooting:</strong></p>
+      <br>
+        <ul style="padding-left: 20px; margin-left: 10px;">
+          <li>If you see <em>"command not found"</em>, update your package list:
+            <code>sudo apt update</code>
+          </li>
+          <li>On Ubuntu, try enabling the Universe repository if problems persist:
+            <code>sudo add-apt-repository universe</code>
+          </li>
         </ul>
-      </div>
+
+        <p><em>Tip:</em> You can press <code>F10</code> to quit <code>htop</code>.</p>
+        
     </div>
 
     <div class="accordion-card">

@@ -259,6 +259,7 @@ html, body {
 
 .accordion-content.expanded {
   max-height: 500px; /* adjust based on expected content */
+  overflow-y: auto;
   padding: 1rem;
 }
 
