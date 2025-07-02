@@ -70,12 +70,13 @@
 
 <section id="tech" class="portfolio-section">
   <h2>Tech Writing Work</h2>
-
+  <br>
   <p>I create user-centered documentation that balances clarity, tone, and structure. My approach is grounded in academic research and built for real-world users.</p>
-
+  
   <p>My academic background includes a PhD in language, stylistics, and discourse analysis, with a focus on how people process information and meaning. Combined with practical experience in HTML, CSS, Markdown, and tools like GitHub and Visual Studio Code, I build documentation that is accurate, accessible, and engaging.</p>
-
+<br>
   <h3>Key Strengths:</h3>
+<br>
   <ul>
     <li>Clear procedural writing</li>
     <li>Visual documentation (tables, diagrams, infographics)</li>
@@ -83,71 +84,102 @@
     <li>Git-based version control workflows</li>
     <li>Plain language and style guide alignment</li>
   </ul>
-
+<br>
   <p>I'm currently building a set of sample docs, walkthroughs, and guides to demonstrate my approach across use cases. These will be added here soon.</p>
 
   <div class="accordion-container">
 
     <div class="accordion-card">
-      <div class="accordion-header">
-        <h3>Install <code>htop</code> on Linux</h3>
-        <button class="toggle-btn">+</button>
-      </div>
-      <div class="accordion-content">
-       <div style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"></div>
-        <p><strong>Overview:</strong></p>
-        <p><code>htop</code> is an interactive process viewer for Unix systems. It is a more user-friendly alternative to <code>top</code>, offering colorized output and intuitive navigation.</p>
+  <div class="accordion-header">
+    <h3>Installing <code>htop</code> on Linux</h3>
+    <button class="toggle-btn">+</button>
+  </div>
+  <div class="accordion-content">
+    
+    <h4>Overview</h4>
+    <br>
+    <p><code>htop</code> is a real-time process monitoring tool for Unix-like systems. It provides a dynamic, colorful, and interactive alternative to the classic <code>top</code> command.</p>
+    <br>
+    <hr>
+    <br>
+    <h4>Installation Steps</h4>
+    <br>
+    <ol style="padding-left: 20px; margin-left: 10px;">
+      <li>Open your terminal.</li>
+      <li>Run the appropriate installation command for your Linux distribution:</li>
+    </ol>
+    <br>
+    <ul style="padding-left: 20px; margin-left: 10px;">
+      <li><strong>Ubuntu / Debian:</strong>
+        <pre><code>sudo apt update
+sudo apt install htop</code></pre>
+      </li>
+      <li><strong>Fedora:</strong>
+        <pre><code>sudo dnf install htop</code></pre>
+      </li>
+      <li><strong>Arch Linux:</strong>
+        <pre><code>sudo pacman -S htop</code></pre>
+      </li>
+    </ul>
+    
+    <br>
+    <hr>
+    <br>
+    <h4>Usage</h4>
+    <br>
+    <p>Once installed, launch <code>htop</code> with:</p>
+    <pre><code>htop</code></pre>
+    <p>You’ll see a live view of system processes, CPU, and memory usage.</p>
 
-        <br>
+    <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid #444;">
 
-        <p><strong>Supported Systems:</strong> Ubuntu / Debian, Fedora, Arch Linux</p>
-        
-        <br>
+    <p style="font-size: 0.9rem; color: #999;">
+      
+    </p>
 
-        <hr>
+    <details id="raw-html-htop" class="raw-code" style="margin-top: 1rem;">
+      <summary style="cursor: pointer; color: #ccc; margin-bottom: 0.5rem;">View Raw HTML</summary>
+      <pre><code>&lt;h4&gt;Overview&lt;/h4&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;code&gt;htop&lt;/code&gt; is a real-time process monitoring tool for Unix-like systems. It provides a dynamic, colorful, and interactive alternative to the classic &lt;code&gt;top&lt;/code&gt; command.&lt;/p&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h4&gt;Installation Steps&lt;/h4&gt;
+&lt;br&gt;
+&lt;ol style=&quot;padding-left: 20px; margin-left: 10px;&quot;&gt;
+  &lt;li&gt;Open your terminal.&lt;/li&gt;
+  &lt;li&gt;Run the appropriate installation command for your Linux distribution:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;ul style=&quot;padding-left: 20px; margin-left: 10px;&quot;&gt;
+  &lt;li&gt;&lt;strong&gt;Ubuntu / Debian:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code&gt;sudo apt update
+sudo apt install htop&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fedora:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code&gt;sudo dnf install htop&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Arch Linux:&lt;/strong&gt;
+    &lt;pre&gt;&lt;code&gt;sudo pacman -S htop&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-        <br>
+&lt;br&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h4&gt;Usage&lt;/h4&gt;
+&lt;br&gt;
+&lt;p&gt;Once installed, launch &lt;code&gt;htop&lt;/code&gt; with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;htop&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You’ll see a live view of system processes, CPU, and memory usage.&lt;/p&gt;
 
-        <p><strong>Step-by-Step Instructions:</strong></p>
-        <br>
-        <ol style="padding-left: 20px; margin-left: 10px;">
-          <li>Open your terminal.</li>
-          <li>
-            Run the appropriate installation command:
-            <ul style="padding-left: 20px; margin-left: 10px;"><br>
-              <li><strong>Ubuntu / Debian:</strong><br>
-                <code>sudo apt update</code><br>
-                <code>sudo apt install htop</code>
-              </li>
-              <li><strong>Fedora:</strong><br>
-                <code>sudo dnf install htop</code>
-              </li>
-              <li><strong>Arch Linux:</strong><br>
-                <code>sudo pacman -S htop</code>
-              </li>
-            </ul>
-          </li><br>
-          <li>Launch <code>htop</code> to verify it works:
-            <code>htop</code>
-        </li>
-      </ol>
-      <br>
-        <hr>
-      <br>
-      <p><strong>Troubleshooting:</strong></p>
-      <br>
-        <ul style="padding-left: 20px; margin-left: 10px;">
-          <li>If you see <em>"command not found"</em>, update your package list:
-            <code>sudo apt update</code>
-          </li>
-          <li>On Ubuntu, try enabling the Universe repository if problems persist:
-            <code>sudo add-apt-repository universe</code>
-          </li>
-        </ul>
+</code></pre>
+    </details>
 
-        <p><em>Tip:</em> You can press <code>F10</code> to quit <code>htop</code>.</p>
-        
-    </div>
+  </div>
+</div>
+
 
     <div class="accordion-card">
       <div class="accordion-header">
